@@ -1,85 +1,195 @@
-# DocGen AI - AI-Powered Code Documentation Generator
+# DocGen AI
 
-**Status:** 🚧 In Development (MVP Phase)
-**Started:** 2026-02-23
-**Target Launch:** 2 weeks
+> AI-powered code documentation generator. Stop writing docs, start shipping code.
 
-## What It Does
+[![npm version](https://badge.fury.io/js/docgen-ai.svg)](https://badge.fury.io/js/docgen-ai)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/awesomejerry/docgen-ai.svg?style=social)](https://github.com/awesomejerry/docgen-ai)
 
-Automatically generates and maintains documentation for code repositories:
-- README files with installation, usage, examples
-- API documentation from code comments
-- Architecture overviews
-- Changelogs from commit history
-- Code examples and usage patterns
+## 🚀 What It Does
 
-## The Problem
+Automatically generates and maintains documentation for your code repositories:
+- **README files** with installation, usage, examples
+- **API documentation** from code comments
+- **Architecture overviews** 
+- **Changelogs** from commit history
+- **Code examples** and usage patterns
 
-- Developers hate writing docs (it's tedious, always outdated)
-- Poor documentation blocks onboarding and adoption
-- Maintaining docs is ongoing work that gets deprioritized
-- AI can write docs, but no good automated tool exists
+## ⚡ Quick Start
 
-## The Solution
+```bash
+# Install globally
+npm install -g docgen-ai
 
-CLI tool that:
-1. Analyzes your codebase
-2. Generates comprehensive documentation
-3. Keeps docs in sync with code changes
-4. Integrates with CI/CD for automatic updates
+# Generate docs for your project
+cd your-project
+docgen generate .
 
-## Revenue Model
+# That's it! Check ./docs/ for your documentation
+```
 
-- **Free Tier:** 1 repository, basic docs
-- **Pro ($29/mo):** Unlimited repos, CI/CD integration, custom templates
-- **Team ($99/mo):** Multi-contributor, collaboration features, analytics
+## 🎯 Why DocGen AI?
 
-## MVP Scope (2 Weeks)
+- **🤖 AI-Powered**: Uses GPT-4 to understand your code and generate clear, helpful docs
+- **⚡ Lightning Fast**: Generate comprehensive docs in seconds, not hours
+- **🔄 Auto-Sync**: Keep docs up-to-date as your code changes
+- **📦 Multi-Language**: Supports JavaScript, TypeScript, Python, and more
+- **🎨 Customizable**: Templates and config files for your team's style
+- **🔗 GitHub Integration**: Clone and document any public repo
 
-### Week 1: Core Engine
-- [ ] Parse JavaScript/TypeScript/Python repositories
-- [ ] Extract functions, classes, modules
-- [ ] Generate README sections (Installation, Usage, API)
-- [ ] Output markdown files
+## 📖 Features
 
-### Week 2: Polish & Launch
-- [ ] GitHub integration (clone repos, create PRs with docs)
-- [ ] CLI interface (npm package)
-- [ ] Simple web landing page
-- [ ] Beta testing with 10 developers
+### Smart Code Analysis
+- Detects frameworks (React, Vue, Express, etc.)
+- Extracts functions, classes, and modules
+- Identifies design patterns
+- Maps dependencies
 
-## Tech Stack
+### AI Documentation
+- Clear installation instructions
+- Usage examples with code
+- API reference documentation
+- Architecture diagrams (coming soon)
 
-- **Language:** TypeScript
-- **Parser:** Babel (JS/TS), Tree-sitter (multi-language)
-- **AI:** OpenAI GPT-4 API (for generating explanations)
-- **CLI:** Commander.js or Oclif
-- **Hosting:** Vercel (landing page + API)
-- **Payments:** Stripe (later)
+### Format Support
+- Markdown (default)
+- HTML (coming soon)
+- Custom templates
 
-## Success Metrics
+### Config File Support
+Create `.docgenrc` in your project:
 
-- Month 1: 50 beta users
-- Month 2: 100 paying customers ($2,900 MRR)
-- Month 3: 200 paying customers ($5,800 MRR)
-- Month 6: 500 paying customers ($14,500 MRR)
+```json
+{
+  "output": "./docs",
+  "format": "markdown",
+  "badges": {
+    "npm": true,
+    "github": true
+  },
+  "sections": {
+    "installation": true,
+    "usage": true,
+    "api": true
+  }
+}
+```
 
-## Competitive Advantage
+## 🛠️ CLI Commands
 
-1. **Automation first** - Not just AI writing, but continuous sync
-2. **Developer-focused** - CLI-native, integrates with git workflow
-3. **Multi-language** - Not locked to one ecosystem
-4. **Transparent** - See what changed and why
+```bash
+# Generate documentation
+docgen generate <path> [options]
 
-## Next Steps
+# Options:
+  -o, --output <dir>      Output directory (default: "./docs")
+  -f, --format <type>     Output format: markdown, html (default: "markdown")
+  -t, --template <name>   Documentation template (default: "default")
+  -d, --dry-run           Preview without writing files
+  --api-key <key>         OpenAI API key (or set OPENAI_API_KEY env var)
 
-1. Build MVP core (this week)
-2. Test on own repos (antidle, constellation-builder)
-3. Launch on Product Hunt
-4. Gather feedback, iterate
-5. Add payment integration
+# Examples:
+docgen generate .                           # Generate docs for current directory
+docgen generate ./my-project -o ./output    # Custom output directory
+docgen generate https://github.com/user/repo # Clone and document GitHub repo
+docgen generate . --dry-run                 # Preview without writing
+```
+
+## 💡 Example Output
+
+### Before (Your Code)
+```typescript
+/**
+ * Calculates the total price with tax
+ */
+export function calculateTotal(price: number, taxRate: number): number {
+  return price * (1 + taxRate);
+}
+```
+
+### After (Generated Docs)
+```markdown
+## API Reference
+
+### `calculateTotal(price, taxRate)`
+
+Calculates the total price with tax.
+
+**Parameters:**
+- `price` (number): The base price
+- `taxRate` (number): The tax rate as a decimal (e.g., 0.08 for 8%)
+
+**Returns:** `number` - Total price including tax
+
+**Example:**
+```typescript
+const total = calculateTotal(100, 0.08);
+console.log(total); // 108
+```
+```
+
+## 🎨 Templates
+
+### Default Template
+Professional README with badges, installation, usage, and API sections.
+
+### Minimal Template
+Concise documentation for small projects.
+
+### Custom Templates
+Create your own templates using the template API (coming soon).
+
+## 🔧 Configuration
+
+### Environment Variables
+
+```bash
+# Required for AI features
+OPENAI_API_KEY=sk-...
+
+# Optional: Custom OpenAI model
+DOCGEN_MODEL=gpt-4-turbo-preview
+```
+
+### Config File Options
+
+See [CONFIG.md](./CONFIG.md) for full configuration reference.
+
+## 📊 Use Cases
+
+- **Solo Developers**: Save hours on documentation
+- **Teams**: Keep docs in sync across the team
+- **Open Source**: Attract contributors with great docs
+- **Agencies**: Deliver complete documentation to clients
+- **Enterprise**: Maintain consistent documentation standards
+
+## 🗺️ Roadmap
+
+- [ ] HTML output format
+- [ ] GitLab/Bitbucket support
+- [ ] Live documentation preview
+- [ ] Documentation hosting
+- [ ] Team collaboration features
+- [ ] API documentation as a service
+
+## 🤝 Contributing
+
+Contributions welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+## 📄 License
+
+MIT © 2026 DocGen AI
+
+## 🆘 Support
+
+- 📧 Email: support@docgen-ai.com
+- 💬 Discord: [Join our community](https://discord.gg/docgen-ai)
+- 🐛 Issues: [GitHub Issues](https://github.com/awesomejerry/docgen-ai/issues)
+
+## ⭐ Star History
+
+If this project helped you, please consider giving it a ⭐️ on GitHub!
 
 ---
 
-**Created by:** OpenClaw autonomous project
-**Repository:** (TBD - will create GitHub repo)
+**Built with ❤️ for developers who hate writing docs**

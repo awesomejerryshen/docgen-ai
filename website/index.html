@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocGen AI - AI-Powered Code Documentation Generator</title>
+    <meta name="description" content="Automatically generate and maintain documentation for your code repositories. Save hours every week with AI-powered docs that stay in sync with your code.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4F46E5;
+        }
+        
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #666;
+        }
+        
+        nav a:hover {
+            color: #4F46E5;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #4F46E5;
+            color: white;
+        }
+        
+        .btn-secondary {
+            border: 2px solid #E5E7EB;
+            color: #333;
+        }
+        
+        .demo {
+            background: #F9FAFB;
+            border-radius: 12px;
+            padding: 40px;
+            margin: 60px 0;
+            text-align: left;
+        }
+        
+        .demo h2 {
+            margin-bottom: 20px;
+        }
+        
+        .code-block {
+            background: #1F2937;
+            color: #F9FAFB;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 80px 0;
+        }
+        
+        .feature {
+            padding: 30px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+        }
+        
+        .feature h3 {
+            margin-bottom: 15px;
+        }
+        
+        .feature p {
+            color: #666;
+        }
+        
+        .pricing {
+            text-align: center;
+            margin: 80px 0;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .price-card {
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 40px;
+        }
+        
+        .price-card.featured {
+            border-color: #4F46E5;
+            position: relative;
+        }
+        
+        .price-card.featured::before {
+            content: 'Most Popular';
+            background: #4F46E5;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            position: absolute;
+            top: -12px;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .price span {
+            font-size: 16px;
+            color: #666;
+            font-weight: normal;
+        }
+        
+        ul {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        ul li {
+            padding: 10px 0;
+        }
+        
+        ul li::before {
+            content: '✓';
+            color: #10B981;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        footer {
+            border-top: 1px solid #E5E7EB;
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .features, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">DocGen AI</div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="https://github.com/awesomejerry/docgen-ai">GitHub</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Stop Writing Docs.<br>Start Shipping Code.</h1>
+        <p>Automatically generate and maintain documentation for your code repositories. AI-powered docs that stay in sync with your code.</p>
+        
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Get Started Free</a>
+            <a href="#" class="btn btn-secondary">View Demo</a>
+        </div>
+    </section>
+    
+    <section class="demo">
+        <h2>Generate docs in seconds, not hours:</h2>
+        <div class="code-block">
+$ npm install -g docgen-ai
+$ cd your-project
+$ docgen generate .
+
+📖 Parsing codebase...
+🤖 Generating documentation...
+✅ Documentation generated in ./docs/
+
+Created: README.md, API.md, CHANGELOG.md
+        </div>
+    </section>
+    
+    <section id="features" class="features">
+        <div class="feature">
+            <h3>🤖 AI-Powered</h3>
+            <p>Uses GPT-4 to understand your code and generate clear, helpful documentation automatically.</p>
+        </div>
+        
+        <div class="feature">
+            <h3>⚡ Lightning Fast</h3>
+            <p>Generate comprehensive docs for your entire project in seconds, not hours of manual work.</p>
+        </div>
+        
+        <div class="feature">
+            <h3>🔄 Auto-Sync</h3>
+            <p>Keep your docs up-to-date as your code changes. Integrates with CI/CD for automatic updates.</p>
+        </div>
+        
+        <div class="feature">
+            <h3>📦 Multi-Language</h3>
+            <p>Supports JavaScript, TypeScript, Python, and more. Works with any codebase structure.</p>
+        </div>
+        
+        <div class="feature">
+            <h3>🎨 Custom Templates</h3>
+            <p>Create custom documentation templates that match your team's style and requirements.</p>
+        </div>
+        
+        <div class="feature">
+            <h3>🔗 GitHub Integration</h3>
+            <p>Point to any GitHub repo and generate docs. Create PRs with updated documentation automatically.</p>
+        </div>
+    </section>
+    
+    <section id="pricing" class="pricing">
+        <h2>Simple Pricing</h2>
+        <p>Start free, scale as you grow</p>
+        
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Free</h3>
+                <div class="price">$0<span>/month</span></div>
+                <ul>
+                    <li>1 repository</li>
+                    <li>5 generations/month</li>
+                    <li>Basic templates</li>
+                    <li>Community support</li>
+                </ul>
+                <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Start Free</a>
+            </div>
+            
+            <div class="price-card featured">
+                <h3>Pro</h3>
+                <div class="price">$29<span>/month</span></div>
+                <ul>
+                    <li>Unlimited repos</li>
+                    <li>Unlimited generations</li>
+                    <li>Custom templates</li>
+                    <li>GitHub integration</li>
+                    <li>Email support</li>
+                </ul>
+                <a href="#" class="btn btn-primary" style="width: 100%; text-align: center;">Start Free Trial</a>
+            </div>
+            
+            <div class="price-card">
+                <h3>Team</h3>
+                <div class="price">$99<span>/month</span></div>
+                <ul>
+                    <li>Everything in Pro</li>
+                    <li>Team collaboration</li>
+                    <li>Shared templates</li>
+                    <li>Analytics dashboard</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+    
+    <section style="text-align: center; padding: 80px 0;">
+        <h2>Save 3+ Hours Every Week</h2>
+        <p style="margin: 20px 0; color: #666;">Join developers who've automated their documentation workflow</p>
+        <a href="#" class="btn btn-primary">Get Started Free</a>
+    </section>
+    
+    <footer>
+        <p>&copy; 2026 DocGen AI. Built with ❤️ for developers.</p>
+    </footer>
+</body>
+</html>
